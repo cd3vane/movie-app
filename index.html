@@ -13,15 +13,19 @@
    <div class="container">
       <header>
          <nav class="main-nav">
-            <h1><button onclick="openTab(event, 'popular-movies')" class="main-nav-link active js-nav-link">Popular</button> |
-                <button onclick="openTab(event, 'browse-movies')" class="main-nav-link js-nav-link">Browse</button> |
-                <button onclick="openTab(event, 'watchlist')" class="main-nav-link js-nav-link">Watchlist</button></h1>
+            <h1><button onclick="openTab(event, 'popular-movies')" class="main-nav-link active" id="default">Popular</button> |
+                <button onclick="openTab(event, 'browse-movies')" class="main-nav-link">Browse</button> |
+                <button onclick="openTab(event, 'watchlist')" class="main-nav-link">Watchlist</button></h1>
          </nav>
       </header>
 
       <div id="browse-movies" class="tabs">
-         <input type="text" placeholder="Enter a movie title" id="term" />
-         <button id="search"><em class="fa fa-search"></em></button>
+         <form id="form">
+         <input type="text" id="search" placeholder="Search" class="search"/>
+         </form>
+         <div id="search-res" class="row">
+
+         </div>
       </div>
       
       <div id="watchlist" class="tabs">
