@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="author" content="Charles DeVane">
-   <meta name="description" content="A responsive movie poster grabber">
-   <title>Front Row by Charles DeVane</title>
+   <meta name="author" content="Charles DeVane">
+   <title>Movie App</title>
    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
-        <!--jQuery, linked from a CDN-->
-   <script src="js/app.js"></script>
-   <script type="text/javascript" src="https://use.typekit.com/oya4cmx.js"></script>
-   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+   
    <link rel="stylesheet" href="css/style.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+
+   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+   
 </head>
 <body>
-    <div class="container">
-        <header>
-           <h1>Front Row</h1>
-        </header>
-        <section id="fetch">
-           <input type="text" placeholder="Enter a movie title" id="term" />
-           <button id="search">Find me a poster</button>
-        </section>
-        <section id="poster">
-        </section>
-        <footer>
-           <p>Created by <a href="https://twostepmedia.co.uk">Charles DeVane</a></p>
-        </footer>
-     </div>
+   <div class="container">
+      <header>
+         <nav class="main-nav">
+            <h1><a href="/" class="main-nav__link is-active js-nav-link">Popular</a> |
+            <a href="/watchlist" class="main-nav__link js-nav-link">Watchlist</a></h1>
+         </nav>
+      </header>
+      <section id="fetch">
+         <!--<input type="text" placeholder="Enter a movie title" id="term" />
+         <button id="search">Find me a poster</button>-->
+      </section>
+      <div id="movies" class="row">
+      </div>
+      <footer>
+         <p>Created by <a href="https://twitter.com/cd3vane" target="_blank">Charles DeVane</a> movie content provided by <a href="https://www.themoviedb.org/" target="_blank">TMDB</a></p>
+      </footer>
+   </div>
+ 
+      <script src="js/app.js"></script>
+ <script type="text/javascript" src="https://use.typekit.com/oya4cmx.js"></script>
 </body>
 </html>

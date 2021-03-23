@@ -1,53 +1,36 @@
-$(document).ready(function () {
- 
-    $('#term').focus(function () {
-        var full = $("#poster").has("img").length ? true : false;
-        if (full == false) {
-            $('#poster').empty();
-        }
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  
+  fetch("https://api.themoviedb.org/3/movie/popular?api_key=845024cb2f20a2bbaba2bd37eddadafc&language=en-US&page=1", requestOptions)
+    .then(response => response.json())
+    .then(movies => showMovies(movies.results))
+    .catch(error => console.log('error', error));
+  
+  
+  
+  showMovies = movies => {
+    const movieDiv = document.querySelector(`#movies`);
+    var index = 1;
+    movies.forEach(movie => {
+      const movieElement = document.createElement('div');
+      const movieTitle = document.createElement('h6');
+      const moviePoster = document.createElement('img');
+      
+      movieElement.id = 'movie' + index;
+      movieElement.className = 'column';
+      movieTitle.innerText = movie.title;
+      moviePoster.id = "poster";
+      moviePoster.src = 'https://image.tmdb.org/t/p/original/' + movie.poster_path;
+      
+      movieDiv.append(movieElement);
+      movieElement.append(moviePoster);
+      movieElement.append(movieTitle);
+      
+      index++;
     });
- 
-    /* 
-    ************************
-    *ADD YOUR API KEY BELOW*
-    ************************
-    */ 
-    var API_KEY = '845024cb2f20a2bbaba2bd37eddadafc';
- 
-    var getPoster = function () {
- 
-        var film = $('#term').val();
- 
-        if (film == "") {
- 
-            $('#poster').html("<h2 class='loading'>Ha! We haven't forgotten to validate the form! Please enter something.</h2>");
- 
-        } else {
- 
-            $('#poster').html("<h2 class='loading'>Your poster is on its way!</h2>");
- 
-            $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + film + "&page=1&include_adult=false", function (json) {
-                if (json != "Nothing found.") {
-                    console.log(json);
-                    $('#poster').html('<h2 class="loading">Well, gee whiz! We found you a poster, skip!</h2><img id="thePoster" src="' + "http://image.tmdb.org/t/p/w185" + json.results[0].poster_path + '" />');
-                } else {
-                    $.getJSON("http://api.themoviedb.org/2.1/Movie.search/en/json/23afca60ebf72f8d88cdcae2c4f31866/goonies?callback=?", function (json) {
-                        console.log(json);
-                        $('#poster').html('<h2 class="loading">We\'re afraid nothing was found for that search. Perhaps you were looking for The Goonies?</h2><img id="thePoster" src=' + json[0].posters[0].image.url + ' />');
-                    });
-                }
-            });
- 
-        }
- 
-        return false;
-    }
- 
-    $('#search').click(getPoster);
-    $('#term').keyup(function (event) {
-        if (event.keyCode == 13) {
-            getPoster();
-        }
-    });
- 
-});
+    
+  }
+  
+  
