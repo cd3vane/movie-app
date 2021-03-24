@@ -68,6 +68,8 @@ var requestOptions = {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    openTab(e, 'browse-movies');
      
     const searchTerm = search.value;
 
@@ -79,4 +81,5 @@ var requestOptions = {
 
 document.getElementById('default').click();
 showMovie(apiUrl, '#movies');
+
 

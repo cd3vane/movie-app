@@ -10,22 +10,22 @@
    
 </head>
 <body>
+      
+      
+ 
    <div class="container">
-      <header>
-         <nav class="main-nav">
-            <h1><button onclick="openTab(event, 'popular-movies')" class="main-nav-link" id="default">Popular</button> |
-            <button onclick="openTab(event, 'browse-movies')" class="main-nav-link">Browse</button> |
-            <button onclick="openTab(event, 'watchlist')" class="main-nav-link">Watchlist</button></h1>   
-         </nav>
-         <form id="form">
-            <input type="text" id="search" placeholder="Search" class="search"/>
-          </form>
-      </header>
-
+      <nav class="navbar justify-content-between">
+         <h1><button onclick="openTab(event, 'popular-movies')" class="main-nav-link" id="default">Popular</button> |
+         <button onclick="openTab(event, 'browse-movies')" class="main-nav-link">Browse</button> |
+         <button onclick="openTab(event, 'watchlist')" class="main-nav-link">Watchlist</button></h1>
+         <form class="form-inline" id="form">
+            <input type="text" id="search" placeholder="Search" class="search form-control mr-sm-2"/>
+         </form>
+      </nav>
       <div id="browse-movies" class="tabs">
          
          <div id="search-res" class="row">
-
+            
          </div>
       </div>
       
