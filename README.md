@@ -1,7 +1,7 @@
 # My Movie App
 
 This is a project that I am still actively working on but works as a small standalone project to view popular movies and search movies from the TMDB API. I am currently backtracking 
-to learn react and then will come back and rebuild this and improve all of the features with what I have learned from tutorials.
+to learn React and then will come back and rebuild this and improve all of the features with what I have learned from tutorials.
 
 ## Features
  - 3 main tabs called: Popular | Browse | Watchlist
