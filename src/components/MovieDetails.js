@@ -1,11 +1,18 @@
-const MovieDetails = ({ movie, onClick }) => {
+import { FaArrowAltCircleLeft } from 'react-icons/fa'
+
+
+const MovieDetails = ({ movie, onClick, onAdd }) => {
     const IMGPATH = "https://image.tmdb.org/t/p/w1280"
 
     return (
-        <div className="popular-movies">
-            <img src={`${IMGPATH}${movie.poster_path}`} className="movie-img" alt="Movie" onClick={onClick}/>
-            <h3>{movie.title}</h3>
-            <p>{movie.overview}</p>
+        <div>
+            <FaArrowAltCircleLeft className="back-arrow" size="2.5em" onClick={onClick} />
+            <h1 className="text-center">{movie.title}</h1>
+            <div className="img-container">
+                <img src={`${IMGPATH}${movie.poster_path}`} alt="Movie" onClick={onClick}/>
+            </div>
+            <p>{movie.overview}</p> 
+            <button onClick={() => onAdd(movie)}>Add to Watchlist</button>
         </div>
     )
 }

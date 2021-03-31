@@ -1,8 +1,13 @@
-const Watchlist = ( { movies, onAdd }) => {
+import Movie from './Movie'
+
+const Watchlist = ( { movies, onClick }) => {
     return (
-        <div>
-            <h1>Default Watchlist</h1>
+        <div className="popular-movies">
+        <div className="row">
+            {movies.map((movie) => 
+            (<Movie key={movie.id} movie={movie} onClick={onClick}/>))}
         </div>
+    </div>
     )
 }
 

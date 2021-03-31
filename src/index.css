@@ -1,3 +1,5 @@
+@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+
 html, body{
   background-color: #000000;
   background: linear-gradient(315deg, #000000 0%, #414141 74%) no-repeat fixed center bottom;
@@ -9,11 +11,20 @@ body{
 
 h1{
   padding: 20px 20px;
+  font-weight: 800;
 }
 
 h6, p{
-    font-weight: 600;
-    text-align: center;
+    font-weight: 500;
+    font-size: large;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.text-center{
+  text-align: center;
 }
 
 .main-nav-link {
@@ -34,6 +45,11 @@ h6, p{
   margin: 0 1rem;
   border: none;
   background-color: #00000000;
+}
+
+.back-arrow{
+  padding-top: 50px;
+  padding-left: 50px;
 }
 
 .App{
@@ -64,6 +80,27 @@ h6, p{
   border-radius: 10px;
   margin: 0 auto;	
   min-height:500px;
+  max-width: 948px;
+}
+
+@media (max-width: 700px) {
+  .container{
+    background-color: #7ee9b7b2;
+    height: 75%;
+    width: 100%;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 10px;
+    margin: 0 auto;	
+    min-height:500px;
+    max-width: 948px;
+  }
+}
+.img-container{
+  background-color: #7ee9b700;
+  height: 50%;
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 30px;
   max-width: 948px
 }
 
@@ -72,9 +109,25 @@ img{
   height: auto;
 }
 
-.movie-img{
-  width: 100%;
-  height: 75%;
+.content{    
+  position:relative;
+}
+
+
+button{
+  border:1px solid #000;
+  width:40px;
+  height:40px;
+  border-radius:100%;
+  margin:4px;
+  display:inline-block;
+  vertical-align:middle;
+  font-size: 30px;
+  color: rgb(58, 119, 86);
+  position:absolute;
+  box-shadow: #414141;
+  bottom:5px;
+  right:5px;
 }
 
 .row {
@@ -86,6 +139,17 @@ img{
   margin-left: -15px;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+@media (max-width: 700px) {
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
 }
 
 .column {
@@ -100,10 +164,22 @@ img{
 }
 
 
-@media (max-width: 560px) {
+@media (max-width: 700px) {
   .column {
     -ms-flex: 0 0 33%;
     flex: 0 0 33%;
     max-width: 33%;
+    padding-bottom: 5px;
   }
+}
+
+ul li {
+  display: inline-block;
+  }
+
+#footer{
+  display: table;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
