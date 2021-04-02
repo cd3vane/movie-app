@@ -1,4 +1,4 @@
-import WatchlistButton from './WatchlistButton'
+import Button from './Button'
 
 const Movie = ({ movie, onClick, onAdd }) => {
     const IMGPATH = "https://image.tmdb.org/t/p/w1280";
@@ -6,7 +6,7 @@ const Movie = ({ movie, onClick, onAdd }) => {
         <div className="column">
             <div className="content">
             <img src={`${IMGPATH}${movie.poster_path}`} alt="No image in database" onClick={() => onClick(movie)} />
-            { movie.poster_path != null ? <WatchlistButton text="+" onClick={() => onAdd(movie)}/> : ''}
+            { movie.poster_path != null ? <Button text="+" name='watchlist-btn' onClick={() => onAdd(movie)}/> : ''}
             </div>
             <h3>{movie.title}</h3>
            

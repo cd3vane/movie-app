@@ -11,6 +11,8 @@ const MovieDetails = ({ movie, onClick, onAdd }) => {
             <div className="img-container">
                 <img src={`${IMGPATH}${movie.poster_path}`} alt="Movie" onClick={onClick}/>
             </div>
+            <h3 className="text-center">Rating: {movie.vote_average}/10 by {movie.vote_count} users</h3>
+            <h1> Synopsis</h1>
             <p>{movie.overview}</p> 
             <button onClick={() => onAdd(movie)}>Add to Watchlist</button>
         </div>

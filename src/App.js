@@ -1,9 +1,10 @@
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'react-tabs/style/react-tabs.css';
 import { useState, useEffect } from 'react'
 
 import Pagination from '@material-ui/lab/Pagination';
 
+import Header from './components/Header'
 import Movies from './components/Movies'
 import SearchMovies from './components/SearchMovies'
 import MovieDetails from './components/MovieDetails'
@@ -71,28 +72,32 @@ function App() {
   }
 
   return (
+    <Router>
     <div className="container">
-      <Tabs>
-      <TabList>
-        <Tab>Popular</Tab>
-        <Tab>Browse</Tab>
-        <Tab>Watchlist</Tab>
-      </TabList>
+     <Header />
 
-      <TabPanel>
+      <Route path="/" exact render={(props) => (
+        <>
         { detailView ? <MovieDetails movie={movie} onClick={toggleDetails} onAdd={addToWatchlist}/> : <Movies movies={popularMovies} onClick={toggleDetails} onAdd={addToWatchlist} /> }
         { !detailView ? <Pagination defaultPage={1} count={500} page={page} onChange={handleChangePage}/> : "" }
-      </TabPanel>
-      <TabPanel>
+        </>
+      )}></Route>
+      
+      <Route path="/browse"  exact render={(props) => (
+        <>
         <SearchMovies onSearch={searchMovies}/>
         { detailView ? <MovieDetails movie={movie} onClick={toggleDetails} onAdd={addToWatchlist}/> : <Movies movies={browseMovies} onClick={toggleDetails} onAdd={addToWatchlist}/> }
-      </TabPanel>
-      <TabPanel>
+        </>
+      )}></Route>
+      
+      <Route path="/watchlist" exact render={(props) => (
+        <>
         { watchlistMovies.length > 0 ? <Watchlist movies={watchlistMovies} onClick={toggleDetails}/> : 'No movie in your watchlist yet'}
-      </TabPanel>
-    </Tabs>
-  
+        </>
+      )}></Route>
+      
     </div>
+    </Router>
   )
 }
 
